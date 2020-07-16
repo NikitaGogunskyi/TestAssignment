@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 public class UserRest {
 
-
     @Autowired
     public UserRest() {
 

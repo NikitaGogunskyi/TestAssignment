@@ -4,6 +4,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -11,13 +13,10 @@ import javax.persistence.MappedSuperclass;
 public class AbstractEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     public AbstractEntity() {
-    }
-
-    public AbstractEntity(String id) {
-        this.id = id;
     }
 
     public String getId() {
