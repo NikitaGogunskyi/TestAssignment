@@ -13,8 +13,6 @@
 	<groupId>com.nikita.hohunskyi</groupId>
 	<artifactId>TestAssignment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>contacts</name>
-	<description>Demo project for Assignment</description>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -22,7 +20,10 @@
 	</properties>
 
 	<modules>
+		<module>api</module>
 		<module>application</module>
+		<module>domain</module>
+		<module>persistence</module>
 	</modules>
 
 	<dependencies>
