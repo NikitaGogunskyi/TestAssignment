@@ -20,9 +20,10 @@
 	</properties>
 
 	<modules>
-		<module>api</module>
 		<module>application</module>
+		<module>api</module>
 		<module>domain</module>
+		<module>service</module>
 		<module>persistence</module>
 	</modules>
 
