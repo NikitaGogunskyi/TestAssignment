@@ -2,7 +2,9 @@ package com.nikita.hohunskyi.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
+import javax.persistence.EnumType;
 
 /**
  * Entity for user.
@@ -11,22 +13,18 @@ import javax.persistence.Table;
 @Entity
 public class UserEntity extends AbstractEntity {
 
-    @Column(name = "full_name")
-    private String fullName;
-
-    @Column(name = "email")
+    @Column(name = "email",  nullable = false, unique = true)
     private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public UserEntity() {
         //default constructor
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -35,5 +33,21 @@ public class UserEntity extends AbstractEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

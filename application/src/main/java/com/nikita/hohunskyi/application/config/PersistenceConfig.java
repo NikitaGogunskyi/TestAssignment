@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EnableJpaRepositories(basePackages = "com.nikita.hohunskyi.persistence")
 @EntityScan(basePackages = "com.nikita.hohunskyi.domain")
-@ComponentScan(basePackages = "com.nikita.hohunskyi.persistence")
+@ComponentScan(basePackages = {"com.nikita.hohunskyi.persistence", "com.nikita.hohunskyi.service.impl"})
 public class PersistenceConfig {
 
 }
