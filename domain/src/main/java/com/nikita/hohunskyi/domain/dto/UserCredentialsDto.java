@@ -1,6 +1,6 @@
 package com.nikita.hohunskyi.domain.dto;
 
-import com.nikita.hohunskyi.domain.constant.ErrorMessage;
+import com.nikita.hohunskyi.domain.constant.ErrorMessages;
 import com.nikita.hohunskyi.domain.constant.RegexConstants;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -9,22 +9,22 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-public class CreateUserDto {
+public class UserCredentialsDto {
 
     @NotNull
-    @Pattern(regexp = RegexConstants.EMAIL, message = ErrorMessage.INCORRECT_USER_EMAIL)
-    private String email;
+    @Pattern(regexp = RegexConstants.EMAIL, message = ErrorMessages.INCORRECT_USER_EMAIL)
+    private String username;
 
     @NotNull
-    @Pattern(regexp = RegexConstants.PASSWORD, message = ErrorMessage.INCORRECT_USER_PASSWORD)
+    @Pattern(regexp = RegexConstants.PASSWORD, message = ErrorMessages.INCORRECT_USER_PASSWORD)
     private String password;
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -39,7 +39,7 @@ public class CreateUserDto {
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(getPassword())
-                .append(getEmail())
+                .append(getUsername())
                 .toHashCode();
     }
 
@@ -53,18 +53,18 @@ public class CreateUserDto {
             return false;
         }
 
-        CreateUserDto createUserDto = (CreateUserDto) o;
+        UserCredentialsDto userCredentialsDto = (UserCredentialsDto) o;
 
         return new EqualsBuilder()
-                .append(getEmail(), createUserDto.getEmail())
-                .append(getPassword(), createUserDto.getPassword())
+                .append(getUsername(), userCredentialsDto.getUsername())
+                .append(getPassword(), userCredentialsDto.getPassword())
                 .isEquals();
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append("email", email)
+                .append("email", username)
                 .append("password", password)
                 .toString();
     }

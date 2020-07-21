@@ -5,4 +5,6 @@ import com.nikita.hohunskyi.domain.UserEntity;
 public interface UserService {
 
     UserEntity save(UserEntity newUser);
+
+    String login(String username, String password);
 }

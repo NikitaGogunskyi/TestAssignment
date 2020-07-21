@@ -1,10 +1,7 @@
 package com.nikita.hohunskyi.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
-import javax.persistence.EnumType;
+import javax.persistence.*;
+import java.time.ZonedDateTime;
 
 /**
  * Entity for user.
@@ -22,6 +19,9 @@ public class UserEntity extends AbstractEntity {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @Column(name = "date_added")
+    private ZonedDateTime dateAdded;
 
     public UserEntity() {
         //default constructor
@@ -49,5 +49,13 @@ public class UserEntity extends AbstractEntity {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public ZonedDateTime getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(ZonedDateTime dateAdded) {
+        this.dateAdded = dateAdded;
     }
 }

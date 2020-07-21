@@ -16,13 +16,20 @@
     <dependencies>
         <dependency>
             <groupId>com.nikita.hohunskyi</groupId>
-            <artifactId>api</artifactId>
+            <artifactId>persistence</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.nikita.hohunskyi</groupId>
-            <artifactId>persistence</artifactId>
+            <artifactId>api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.nikita.hohunskyi</groupId>
+            <artifactId>service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
