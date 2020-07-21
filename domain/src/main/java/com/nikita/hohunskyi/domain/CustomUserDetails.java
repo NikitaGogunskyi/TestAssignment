@@ -10,10 +10,13 @@ import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
 
-     private UserEntity user;
+    private String username;
+
+    private String password;
 
     public CustomUserDetails(UserEntity user) {
-        this.user = user;
+        username = user.getEmail();
+        password = user.getPassword();
     }
 
     @Override
@@ -25,12 +28,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return username;
     }
 
     @Override
