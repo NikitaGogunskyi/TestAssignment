@@ -17,10 +17,10 @@ public class ContactEntity extends AbstractEntity {
     @Column(name = "name", unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contact", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ContactEmailEntity> emailEntities;
 
-    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "contact", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ContactPhoneNumberEntity> phoneNumberEntities;
 
     public UserEntity getUser() {

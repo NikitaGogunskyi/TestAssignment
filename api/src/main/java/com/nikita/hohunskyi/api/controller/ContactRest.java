@@ -10,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Set;
 
 @RestController
 @Validated
@@ -29,6 +30,12 @@ public class ContactRest {
     public ResponseEntity<?> createContact(@Valid @RequestBody ContactDto contactDto) {
         ContactEntity newContactEntity = conversionService.convert(contactDto, ContactEntity.class);
         return ResponseEntity.ok(contactService.save(newContactEntity));
+    }
+
+    @GetMapping("contacts")
+    public ResponseEntity<?> userContacts() {
+        Set<ContactEntity> contactEntities = contactService.getUserContacts();
+        return ResponseEntity.ok(contactEntities);
     }
 
 }

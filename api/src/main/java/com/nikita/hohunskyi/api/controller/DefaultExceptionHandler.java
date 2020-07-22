@@ -16,7 +16,6 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 public class DefaultExceptionHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultExceptionHandler.class);
-    private static final String WRONG_PAGE_MESSAGE = "Wrong page. Use only positive natural numbers, please.";
     private static final String BAD_REQUEST_FROM_USER = "Bad request from user";
 
     @ExceptionHandler({MethodArgumentTypeMismatchException.class,
