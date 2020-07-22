@@ -1,5 +1,7 @@
 package com.nikita.hohunskyi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -9,15 +11,16 @@ public class ContactEntity extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private UserEntity user;
 
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ContactEmailEntity> emailEntities;
 
-    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ContactPhoneNumberEntity> phoneNumberEntities;
 
     public UserEntity getUser() {

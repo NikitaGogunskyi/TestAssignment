@@ -1,18 +1,14 @@
 package com.nikita.hohunskyi.domain;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
 import java.time.ZonedDateTime;
-import java.util.Set;
 
 /**
  * Entity for user.
  */
 @Table(name = "users")
 @Entity
-public class UserEntity extends AbstractEntity {
+public class UserEntity extends AbstractEntity{
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -26,10 +22,6 @@ public class UserEntity extends AbstractEntity {
 
     @Column(name = "date_added")
     private ZonedDateTime dateAdded;
-
-    @LazyCollection(LazyCollectionOption.EXTRA)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<ContactEntity> contacts;
 
     public UserEntity() {
         //default constructor
@@ -65,13 +57,5 @@ public class UserEntity extends AbstractEntity {
 
     public void setDateAdded(ZonedDateTime dateAdded) {
         this.dateAdded = dateAdded;
-    }
-
-    public Set<ContactEntity> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<ContactEntity> contacts) {
-        this.contacts = contacts;
     }
 }

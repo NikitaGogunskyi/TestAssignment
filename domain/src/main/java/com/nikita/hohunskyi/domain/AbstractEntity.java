@@ -13,17 +13,16 @@ import javax.persistence.MappedSuperclass;
 public class AbstractEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String id;
 
     public AbstractEntity() {
     }
 
-    public Long getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

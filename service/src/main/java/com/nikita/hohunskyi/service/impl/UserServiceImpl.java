@@ -1,6 +1,8 @@
 package com.nikita.hohunskyi.service.impl;
 
+import com.nikita.hohunskyi.domain.CustomUserDetails;
 import com.nikita.hohunskyi.domain.UserEntity;
+import com.nikita.hohunskyi.domain.UserPrincipal;
 import com.nikita.hohunskyi.domain.constant.ErrorMessages;
 import com.nikita.hohunskyi.persistence.UserRepository;
 import com.nikita.hohunskyi.persistence.utils.JwtUtils;
@@ -47,6 +49,14 @@ public class UserServiceImpl implements UserService {
                 new UsernamePasswordAuthenticationToken(username, password));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return jwtUtils.generateJwtToken(authentication);
+    }
+
+    @Override
+    public CustomUserDetails getCurrentUser() {
+        return (CustomUserDetails) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal();
     }
 
     private void checkUserAlreadyExists(String email) {

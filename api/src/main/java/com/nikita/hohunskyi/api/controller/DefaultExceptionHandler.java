@@ -24,7 +24,8 @@ public class DefaultExceptionHandler {
             IllegalStateException.class,
             ConversionFailedException.class,
             PropertyReferenceException.class,
-            MissingServletRequestParameterException.class
+            MissingServletRequestParameterException.class,
+            ConversionFailedException.class
     })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<?> onServiceException(Exception e) {

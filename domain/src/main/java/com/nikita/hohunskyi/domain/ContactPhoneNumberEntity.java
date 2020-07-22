@@ -1,20 +1,20 @@
 package com.nikita.hohunskyi.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Table(name = "contact_phone_numbers")
 @Entity
 public class ContactPhoneNumberEntity extends AbstractEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "contact_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id")
+    @JsonIgnore
     private ContactEntity contact;
 
-    @ManyToOne
-    @JoinColumn(name = "number_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "number_id")
     private PhoneNumberEntity number;
 
     public ContactEntity getContact() {
